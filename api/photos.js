@@ -1,9 +1,9 @@
 // api/photos.js
-import { google } from 'googleapis';
+const { google } = require('googleapis');
 
 const FOLDER_ID = '1pUOEE5hqJMgbzgsuM4sHdIXmjVOq5Hc0';
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // CORS
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -49,4 +49,4 @@ export default async function handler(req, res) {
       error: error.message || 'Erro ao carregar fotos'
     });
   }
-}
+};
