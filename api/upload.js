@@ -1,17 +1,11 @@
 // api/upload.js
-import { google } from 'googleapis';
-import formidable from 'formidable';
-import { createReadStream, unlinkSync } from 'fs';
+const { google } = require('googleapis');
+const formidable = require('formidable');
+const { createReadStream, unlinkSync } = require('fs');
 
 const FOLDER_ID = '1pUOEE5hqJMgbzgsuM4sHdIXmjVOq5Hc0';
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
-
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // CORS
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -97,4 +91,4 @@ export default async function handler(req, res) {
       error: error.message || 'Erro ao enviar fotos'
     });
   }
-}
+};
